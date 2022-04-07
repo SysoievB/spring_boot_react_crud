@@ -71,6 +71,6 @@ public class ClientService {
     public List<Client> getAll() {
         log.info("In ClientService getAll");
 
-        return repository.findAll(Sort.by(Sort.Direction.ASC));
+        return repository.findAll();
     }
 }

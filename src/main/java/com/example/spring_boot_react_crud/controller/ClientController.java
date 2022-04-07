@@ -21,11 +21,30 @@ public class ClientController {
 
     @GetMapping("/{id}")
     public ResponseEntity<Client> get(@PathVariable Long id) {
-        if (id == null) return ResponseEntity.badRequest().build();
+        if (id == null) {
+            return ResponseEntity.badRequest().build();
+        }
 
-        Client client = this.service.getById(id);
+        var client = this.service.getById(id);
 
-        if (client == null) return ResponseEntity.notFound().build();
+        if (client == null) {
+            return ResponseEntity.notFound().build();
+        }
+
+        return ResponseEntity.ok(client);
+    }
+
+    @GetMapping("/name/{name}")
+    public ResponseEntity<Client> getByName(@PathVariable String name) {
+        if (name == null) {
+            return ResponseEntity.badRequest().build();
+        }
+
+        Client client = this.service.getByName(name);
+
+        if (client == null) {
+            return ResponseEntity.notFound().build();
+        }
 
         return ResponseEntity.ok(client);
     }

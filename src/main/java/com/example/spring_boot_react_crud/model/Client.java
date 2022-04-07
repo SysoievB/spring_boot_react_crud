@@ -1,6 +1,7 @@
 package com.example.spring_boot_react_crud.model;
 
 import lombok.Data;
+
 import javax.persistence.*;
 
 @Entity
@@ -20,4 +21,13 @@ public class Client {
 
     @Column(name = "email")
     private String email;
+
+    public Client(String firstName, String lastName, String email) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+    }
+
+    public Client() {
+    }
 }
